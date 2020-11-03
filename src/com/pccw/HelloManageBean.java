@@ -29,12 +29,14 @@ public class HelloManageBean {
             conn2 = DriverManager.getConnection(dbURL2, username, password);
             if (conn2 != null) {
                 System.out.println("Connected with connection #2");
+                return "Connected with connection jdbc:oracle:thin:@10.87.122.65:1526:imssit";
             }
 
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return "Connection failed to jdbc:oracle:thin:@10.87.122.65:1526:imssit";
         } finally {
             try {
                 if (conn1 != null && !conn1.isClosed()) {
